@@ -1,8 +1,9 @@
+#!/usr/bin/python
 # -*- coding:utf-8 -*-
+from __future__ import unicode_literals#必须放在首行
 from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
 
-from __future__ import unicode_literals
 
 @python_2_unicode_compatible
 class Column(models.Model):

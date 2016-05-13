@@ -22,7 +22,7 @@ def main():
         for i in xrange(1, 11):
             article = Article.objects.get_or_create(
                 title = '{}_{}'.format(column_name, i),
-                slug = 'article_{}'.format(i),
+                slug = '{}_article_{}'.format(column_name, i),
                 content = '新闻详细内容: {} {}'.format(column_name, i))[0]
             
             article.column.add(c)

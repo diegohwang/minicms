@@ -18,5 +18,5 @@ def column_detail(request, column_slug):
 
 def article_detail(requset, article_slug):
     #return HttpResponse('article slug: ' + article_slug)
-    article = Article.objects.get(slug=article_slug)
+    article = Article.objects.get(slug=article_slug)[0]
     return render(request, 'news/article.html', {'article': article})

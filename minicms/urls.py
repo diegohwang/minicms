@@ -23,7 +23,7 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
 ]
 
-if setting.DEBUG:
+if settings.DEBUG:
     from django.conf.urls.static import static
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     

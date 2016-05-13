@@ -28,6 +28,9 @@ class Article(models.Model):
     content = models.TextField('内容', default='', blank=True)
     published = models.BooleanField('正式发布', default=True)
     
+    pub_date = models.DateTimeField('发表时间', auto_now_add=True,editable=True)
+    update_time = models.DateTimeField('更新时间', auto_now=True, null=True)
+    
     def __str__(self):
         return self.title
     

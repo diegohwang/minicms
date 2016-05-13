@@ -4,6 +4,7 @@ from __future__ import unicode_literals#必须放在首行
 from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
 from DjangoUeditor.models import UEditorField
+from django.core.urlresolvers import reverse
 
 
 @python_2_unicode_compatible

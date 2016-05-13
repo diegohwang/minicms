@@ -12,6 +12,9 @@ class Column(models.Model):
     slug = models.CharField('栏目网址', max_length=128, db_index=True)
     intro = models.TextField('栏目简介', default='')
     
+    def get_absolute_url(self):
+        return reverse('column', args=(self.slug,))
+    
     def __str__(self):
         return self.name
     
@@ -34,6 +37,9 @@ class Article(models.Model):
     
     pub_date = models.DateTimeField('发表时间', auto_now_add=True,editable=True)
     update_time = models.DateTimeField('更新时间', auto_now=True, null=True)
+    
+    def get_absolute_url(self):
+        return reverse('article', args=(self.slug,))
     
     def __str__(self):
         return self.title

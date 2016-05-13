@@ -10,7 +10,9 @@ from django.shortcuts import redirect
 def index(request):
     #return HttpResponse(u'欢迎来黄金书院学习Django')
     columns = Column.objects.all()
-    return render(request, 'index.html', {'columns': columns})
+    return render(request, 'index.html', 
+        {'home_display_columns': home_display_columns,
+        'nav_display_columns': nav_display_columns,})
 
 def column_detail(request, column_slug):
     #return HttpResponse('column slug: ' + column_slug)

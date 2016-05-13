@@ -28,7 +28,8 @@ class Column(models.Model):
 class Article(models.Model):
     column = models.ManyToManyField(Column, verbose_name='归属栏目')
     title = models.CharField('标题', max_length=128)
-    slug = models.CharField('网址', max_length=128, db_index=True)
+    #slug = models.CharField('网址', max_length=128, db_index=True)
+    slug = models.CharField('网址', max_length=128, unique=True)
     author = models.ForeignKey('auth.User', blank=True, null=True, verbose_name='作者')
     #content = models.TextField('内容', default='', blank=True)
     content = UEditorField('内容', height=300, width=1000, default=u'',
@@ -40,7 +41,7 @@ class Article(models.Model):
     update_time = models.DateTimeField('更新时间', auto_now=True, null=True)
     
     def get_absolute_url(self):
-        return reverse('article', args=(self.slug,))
+        return reverse('article', args=(self.pk, self.slug))
     
     def __str__(self):
         return self.title

@@ -23,7 +23,7 @@ from news import views as news_views
 urlpatterns = [
     url(r'^$', news_views.index, name='index'),
     url(r'^column/(?P<column_slug>[^/]+)/$', news_views.column_detail, name='column'),
-    url(r'^news/(?P<article_slug>[^/]+)/$', news_views.article_detail, name='article'),
+    url(r'^news/(?P<pk>\d+)/(?P<article_slug>[^/]+)/$', news_views.article_detail, name='article'),
     url(r'^ueditor/', include(DjangoUeditor_urls)),
     url(r'^admin/', include(admin.site.urls)),
 ]
